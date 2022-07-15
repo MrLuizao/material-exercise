@@ -29,7 +29,6 @@ export class HomePageComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       this.nameInput = result;
-      // console.log(this.nameInput); 
     });
   }
 

@@ -17,6 +17,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSelectModule } from '@angular/material/select';
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -64,7 +68,12 @@ import { CambioLetrasPipe } from './pipes/cambio-letras.pipe';
     MatInputModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatChipsModule,
+    MatSelectModule
+    
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}

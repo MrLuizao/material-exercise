@@ -18,4 +18,10 @@ export class LoginService {
     return this.http.post('https://desa.ies-webcontent.com.mx/login', OBJECT);
     
   }
+
+  postCivilState(){
+
+    return this.http.post('http://201.131.20.125/BienesRaicesApi/api/services/app/Catalogo/EstadoCivil', {});
+
+  }
 }

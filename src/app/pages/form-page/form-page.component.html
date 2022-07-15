@@ -2,5 +2,70 @@
 <app-bar-menu [titleParam]="titleParam"></app-bar-menu>
 
 <div class="contain-form">
+    <form (submit)="sendDataSubmit()" [formGroup]="formGroup">
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre(s)</mat-label>
+            <input matInput type="text" placeholder="Nombre o nombres" formControlName="nombres" name="nombres">
 
+            <!-- <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                   placeholder="any@test.com">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Ingresa un correo válido
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Dato <strong>obligatorio</strong>
+            </mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Apellido(s)</mat-label>
+            <input matInput type="text" placeholder="Apellido o apellidos" formControlName="apellidos" name="apellidos">
+        </mat-form-field>
+
+        <section class="top-1" style="text-align: center;">
+            <mat-label>¿Fumas?</mat-label>
+            <mat-radio-group aria-label="Select an option" formControlName="fumas">
+                <mat-radio-button value="si" (change)="changesRadioButton($event, 'fumas')">Sí</mat-radio-button>
+                <mat-radio-button value="no" (change)="changesRadioButton($event, 'fumas')">No</mat-radio-button>
+            </mat-radio-group>
+        </section>
+
+        <section class="radio-group-custom top-1">
+            <mat-label>¿Practicas la lectura?</mat-label>
+            <mat-radio-group aria-label="Select an option" formControlName="practicasLectura" >
+                <mat-radio-button value="si" (change)="changesRadioButton($event, 'lectura')">Sí</mat-radio-button>
+                <mat-radio-button value="no" (change)="changesRadioButton($event, 'lectura')">No</mat-radio-button>
+            </mat-radio-group>
+        </section>
+
+        <mat-form-field class="example-full-width" *ngIf="bookRead">
+            <mat-label>Título del Libro</mat-label>
+            
+            <input matInput type="text" placeholder="Escrible el título del libros o libros" formControlName="librosLeidos" name="librosLeidos" [(ngModel)]="value" id="book">
+            <mat-icon *ngIf="value" matSuffix mat-icon-button (click)="saveBookList()">save</mat-icon>
+            
+        </mat-form-field>
+
+        <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal">
+            <mat-chip class="example-box" cdkDrag *ngFor="let item of listBooks">
+            {{item.name}}
+            </mat-chip>
+        </mat-chip-list>
+
+        <mat-form-field class="example-full-width top-1">
+            <mat-label>Favorite food</mat-label>
+            <mat-select>
+            <!-- <mat-select (selectionChange)="detectSelectOpt($event)"> -->
+                <mat-option *ngFor="let item of civilState" [value]="item.value">
+                {{item.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="center-button">
+          <button mat-stroked-button color="basic" type="submit" [disabled]="formGroup.invalid" *ngIf="!loading">Enviar</button>
+          <mat-spinner *ngIf="loading" color="accent"></mat-spinner>
+        </div>
+
+    </form>
 </div>
