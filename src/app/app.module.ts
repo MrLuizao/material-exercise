@@ -31,6 +31,7 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
 import { HttpClientModule } from '@angular/common/http';
 import { LoginDialogComponent } from './components/dialogs/login-dialog/login-dialog.component';
 import { InputNameComponent } from './components/dialogs/input-name/input-name.component';
+import { CambioLetrasPipe } from './pipes/cambio-letras.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { InputNameComponent } from './components/dialogs/input-name/input-name.c
     LoginPageComponent,
     BarMenuComponent,
     LoginDialogComponent,
-    InputNameComponent
+    InputNameComponent,
+    CambioLetrasPipe
   ],
   imports: [
     BrowserModule,

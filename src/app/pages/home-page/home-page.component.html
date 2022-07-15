@@ -8,6 +8,6 @@
     <p>Indícanos tu nombre</p>
     <button mat-stroked-button color="basic" type="button" (click)="openDialogInput()">Escribe tu nombre</button>
 
-    <p *ngIf="nameInput != '' ">El nombre ingresado es <strong>{{nameInput}}</strong> </p>
+    <p *ngIf="nameInput != '' ">El nombre ingresado es <strong>{{nameInput | cambioLetras}}</strong> </p>
 
 </div>
