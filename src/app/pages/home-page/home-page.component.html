@@ -1,0 +1,13 @@
+
+<app-bar-menu [titleParam]="titleParam"></app-bar-menu>
+
+<div class="container">
+    <div class="title-contain" >
+        <h1>Bienvenido a mi portal.</h1>
+    </div>
+    <p>Indícanos tu nombre</p>
+    <button mat-stroked-button color="basic" type="button" (click)="openDialogInput()">Escribe tu nombre</button>
+
+    <p *ngIf="nameInput != '' ">El nombre ingresado es <strong>{{nameInput}}</strong> </p>
+
+</div>

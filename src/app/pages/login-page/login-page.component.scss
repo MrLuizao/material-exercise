@@ -1,0 +1,55 @@
+
+.center-item{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: -webkit-linear-gradient(to right, #b46984, #4d4979); 
+    background: linear-gradient(to right, #b46984, #4d4979);
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+form{
+    max-width: 50%;
+}
+
+button{
+    border-radius: 25px;
+    margin-top: 3em;
+    width: 50%;
+    height: 50px;
+    border-style: solid;
+    border-width: 3px;
+}
+
+mat-form-field{
+    margin-top: 2em;
+}
+
+.center-button{
+    display: flex;
+    justify-content: center;
+}
+
+.glass{
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px) ;
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba( 255, 255, 255, 0.18);
+    padding: 3em;
+}
+
+
+mat-label{
+    color:#000;
+}
+
+mat-error{
+    color: #000;
+}

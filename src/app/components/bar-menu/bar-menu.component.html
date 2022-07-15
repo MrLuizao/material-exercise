@@ -1,0 +1,29 @@
+<mat-toolbar color="basic" nfxLayout="row">
+    <mat-toolbar-row>
+      <span>{{titleParam}}</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <div>
+          <a mat-button routerLink ='/home'> Inicio </a>
+        </div>
+        <div>
+          <a mat-button routerLink ='/convertions'> Conversiones </a>
+        </div>
+        <div>
+          <a mat-button routerLink ='/calculate'> Calcular Fecha </a>
+        </div>
+        <div>
+          <a mat-button routerLink ='/forms'> Formulario </a>
+        </div>
+
+        <button mat-menu-item (click)="logOut()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Cerrar Sesión</span>
+        </button>
+      </mat-menu>
+      
+    </mat-toolbar-row>
+</mat-toolbar>

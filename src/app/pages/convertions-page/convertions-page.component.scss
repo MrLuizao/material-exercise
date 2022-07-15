@@ -1,0 +1,95 @@
+
+.contain-title{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://img.wallpapersafari.com/desktop/1920/1080/11/91/jw9Wpd.png');
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    flex-direction: column;
+}
+
+p{
+    font-size: clamp(3.5rem, 15vw + 1rem, 2rem);
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+
+.stage {
+    height: 300px;
+    width: 500px;
+    margin: auto;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    perspective: 9999px;
+    transform-style: preserve-3d;
+  }
+  
+  .layer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    opacity: 0;
+    animation: ಠ_ಠ 5s infinite alternate ease-in-out -7.5s,
+               o_O 0.1s 1;
+    animation-fill-mode: forwards;
+    transform: rotateY(40deg) rotateX(33deg) translateZ(0);
+  }
+  
+  .layer:after {
+    font: 150px/0.65 'Roboto', 'Trebuchet MS', Helvetica, sans-serif;
+    content: 'Conver\A siones';
+    white-space: pre;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50px; 
+    color: darken(#000, 4%);
+    letter-spacing: -2px;
+    text-shadow: 4px 0 10px hsla(0, 0%, 0%, .13);
+  }
+  
+  $i: 1;
+  $NUM_LAYERS: 20;
+  @for $i from 1 through $NUM_LAYERS {
+    .layer:nth-child(#{$i}):after{
+      transform: translateZ(($i - 1) * -2px);
+    }
+  }
+  
+  .layer:nth-child(n+#{round($NUM_LAYERS/2)}):after {
+    -webkit-text-stroke: 3px hsla(0, 0%, 0%, .25);
+  }
+  
+  .layer:nth-child(n+#{round($NUM_LAYERS/2 + 1)}):after {
+    -webkit-text-stroke: 15px dodgerblue;
+    text-shadow: 6px 0 6px darken(dodgerblue,35%),
+                 5px 5px 5px darken(dodgerblue,40%),
+                 0 6px 6px darken(dodgerblue,35%);
+  }
+  
+  .layer:nth-child(n+#{round($NUM_LAYERS/2 + 2)}):after {
+    -webkit-text-stroke: 15px darken(#b92b27, 10%);
+  }
+  
+  .layer:last-child:after {
+    -webkit-text-stroke: 17px hsla(0, 0%, 0%, .1);
+  }
+  
+  .layer:first-child:after{
+    color: #fff;
+    text-shadow: none;
+  }
+  
+  @keyframes ಠ_ಠ {
+    100% { transform: rotateY(-40deg) rotateX(-43deg); }
+  }
+  
+  @keyframes o_O { 100% { opacity: 1; } }
+  
+  

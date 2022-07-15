@@ -1,0 +1,49 @@
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://img.wallpapersafari.com/desktop/1920/1080/11/91/jw9Wpd.png');
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    flex-direction: column;
+}
+
+
+section{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-size: clamp(3.5rem, 15vw + 1rem, 2rem);
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+p{
+    margin-top: 1em;
+    font-size: clamp(0.5rem, 5vw + 1rem, 2rem);
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+button{
+    border-radius: 25px;
+    margin-top: 3em;
+    height: 50px;
+    border-style: solid;
+    border-width: 3px;
+    width: 25%;
+    margin-bottom: 1em;
+}
+
+.title-contain{
+    display: flex;
+    max-width: 90%;
+    text-align: center;
+    align-items: center;
+}
