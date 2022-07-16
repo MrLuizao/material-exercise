@@ -10,3 +10,30 @@
     background-size: cover; 
     flex-direction: column;
 }
+
+.demo-inline-calendar-card {
+    width: 300px;
+}
+
+.glass-lg{
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px) ;
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba( 255, 255, 255, 0.18);
+    padding: 3em;
+    display: flex;
+    align-items: center;
+}
+
+.grid{
+    margin-left: 2em;
+    display: grid;
+}
+.large-txt{
+    font-size: large;
+}
+.txt-date{
+    font-size: x-large; text-align: center
+}

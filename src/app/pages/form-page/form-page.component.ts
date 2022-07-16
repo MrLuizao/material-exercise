@@ -1,3 +1,4 @@
+import { ReturnStatement } from '@angular/compiler';
 import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -26,23 +27,23 @@ export class FormPageComponent implements OnInit {
     {value: 14, viewValue: 'Unión Libre'},
   ];
 
+  errorNames: boolean = false;
+
   constructor(  private formBuilder: FormBuilder, 
                 private _snackBar: MatSnackBar,
                 private service: LoginService ) { }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      nombres: ['', Validators.required],
-      apellidos: ['', Validators.required],
+      nombres: [undefined, Validators.required],
+      apellidos: [undefined, Validators.required],
       fumas: [undefined, Validators.required],
       practicasLectura: [undefined, Validators.required],
-      librosLeidos: [undefined, Validators.required]
+      librosLeidos: [undefined, Validators.required],
+      estadoCivil: [undefined]
     });
     this.formGroup.librosLeidos = [];
 
-    // this.service.postCivilState().subscribe( (resp)=>{
-    //   console.log(resp);
-    // })
   }
 
   changesRadioButton(evt: any, param: string){
@@ -51,12 +52,10 @@ export class FormPageComponent implements OnInit {
     if(param === 'lectura'){
       evt.value === 'si' ? this.formGroup.practicasLectura = true : this.formGroup.practicasLectura = false;
       this.bookRead = this.formGroup.practicasLectura
-      console.log('this.bookRead ',this.bookRead);
     }
 
     if (param === 'fumas') {
       evt.value === 'si' ? this.formGroup.fumas = true : this.formGroup.fumas = false;
-      console.log( this.formGroup.fumas);
     }
 
   }
@@ -70,13 +69,47 @@ export class FormPageComponent implements OnInit {
   sendDataSubmit(){
     this.loading = true;
 
-    setTimeout( ()=>{
+    let formDataInterface: FormDataI = {
+      nombres: this.formGroup.value.nombres,
+      apellidos: this.formGroup.value.apellidos,
+      fumas: this.formGroup.fumas,
+      actualmentePracticasLectura: this.formGroup.practicasLectura,
+      librosLeidosUltimosTresMeses: this.formGroup.librosLeidos,
+      estadoCivil: this.value
+    }
+    
+    if( formDataInterface.nombres.substr(-1) === ' ' || 
+        formDataInterface.nombres.charAt(0) === ' ' || 
+        formDataInterface.apellidos.substr(-1) === ' ' || 
+        formDataInterface.apellidos.charAt(0) === ' ' ){
       this.loading = false;
-      this._snackBar.open('Error de conexión', 'Cerrar', {
-        duration: 2500
-      })
 
-    },3000)
+      this._snackBar.open('Los campos NOMBRES y APELLIDOS no puede tener espacios al princio y al final', 'ok', {
+        duration: 3500
+      })
+      return
+
+    }else{
+
+      setTimeout( ()=>{
+        this.loading = false;
+
+        this.formGroup.setValue({
+          nombres: [undefined],
+          apellidos: [undefined],
+          fumas: [undefined],
+          practicasLectura: [undefined],
+          librosLeidos: [undefined],
+          estadoCivil: [undefined]
+
+        });
+
+        this._snackBar.open('Se guardaron los datos correctamente', 'Cerrar', {
+          duration: 2500
+        })
+      },3000)
+    }
+
   }
 
 }

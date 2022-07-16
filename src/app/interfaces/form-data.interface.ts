@@ -5,6 +5,6 @@ export interface FormDataI {
     fumas: boolean;
     actualmentePracticasLectura: boolean;
     librosLeidosUltimosTresMeses: [];
-    estadoCivil: number;
+    estadoCivil?: any;
 }
 

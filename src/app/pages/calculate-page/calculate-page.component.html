@@ -2,5 +2,38 @@
 <app-bar-menu [titleParam]="titleParam"></app-bar-menu>
 
 <div class="contain-calculate">
+    <div class="glass-lg">
+        <section>
+            <mat-card class="demo-inline-calendar-card">
+                <mat-calendar [(selected)]="this.dateSelected"></mat-calendar>
+            </mat-card>
+        </section>
+        <section class="grid">
+            <mat-label>Selecciona un parámetro</mat-label>
+            <mat-select (selectionChange)="detectSelectOpt($event)">
+                <mat-option *ngFor="let item of dateArray" [value]="item.metric">
+                    {{item.metric}}
+                </mat-option>
+            </mat-select>
+            
+            <mat-form-field class="example-full-width top-1">
+                <mat-label>Establece una cantidad</mat-label>
+                <input type="number" matInput placeholder="cantidad" [(ngModel)]="quantity" >
+            </mat-form-field>
 
+            <div class="center-button">
+                <button mat-stroked-button color="basic" type="button" (click)="calculateDate()">Calcular</button>
+            </div>
+
+              
+            <mat-label class="top-1 large-txt">Fecha seleccionada: </mat-label>
+            <mat-label class="top-1 txt-date">{{dateSelected | date: 'shortDate'}}</mat-label>
+
+            <mat-label class="top-1 large-txt">Fecha transformada: </mat-label>
+            <mat-label class="top-1 txt-date">{{dateTransformed | date: 'shortDate'}}</mat-label>
+
+        </section>
+        
+    </div>
+    
 </div>

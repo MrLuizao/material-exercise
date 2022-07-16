@@ -22,6 +22,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -72,7 +74,9 @@ import { CambioLetrasPipe } from './pipes/cambio-letras.pipe';
     MatCheckboxModule,
     MatRadioModule,
     MatChipsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
     
   ],
   providers: [
